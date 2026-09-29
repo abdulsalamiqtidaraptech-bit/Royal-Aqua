@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Royal Aqua brings clean, great-tasting water to homes and businesses, delivered with care."
+    />
+    <title>Royal Aqua | Water, delivered beautifully</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #12333a;
+        --muted: #5f7678;
+        --sea: #0c7c83;
+        --sea-deep: #07565f;
+        --foam: #e9f5f1;
+        --paper: #fbfcf9;
+        --sun: #f4bf68;
+        --line: #d8e6e1;
+        --white: #fff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: "DM Sans", sans-serif;
+        line-height: 1.5;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+      .wrap {
+        width: min(1160px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      .announcement {
+        padding: 9px 20px;
+        background: var(--sea-deep);
+        color: #dff5ed;
+        text-align: center;
+        font-size: 0.77rem;
+        letter-spacing: 0.04em;
+      }
+      .announcement strong {
+        color: var(--sun);
+        font-weight: 700;
+      }
+      header {
+        position: absolute;
+        z-index: 2;
+        inset: 38px 0 auto;
+        color: var(--white);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        min-width: max-content;
+      }
+      .brand-symbol {
+        width: 40px;
+        height: 46px;
+        flex: 0 0 auto;
+      }
+      .brand-copy {
+        display: grid;
+        gap: 0;
+        line-height: 1;
+        letter-spacing: 0.04em;
+      }
+      .brand-name {
+        color: #eaf8ff;
+        font-family: Fraunces, serif;
+        font-size: 1.06rem;
+        font-weight: 700;
+      }
+      .brand-tagline {
+        margin-top: 4px;
+        color: #b9eee1;
+        font-size: 0.42rem;
+        font-weight: 700;
+        letter-spacing: 0.17em;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 31px;
+        font-size: 0.84rem;
+        font-weight: 600;
+      }
+      .nav-links a {
+        opacity: 0.86;
+        transition: opacity 0.2s;
+      }
+      .nav-links a:hover {
+        opacity: 1;
+      }
+      .nav-cta,
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        border: 0;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        transition:
+          transform 0.2s,
+          background 0.2s;
+      }
+      .nav-cta {
+        padding: 11px 17px;
+        background: var(--sun);
+        color: var(--ink);
+        font-size: 0.8rem;
+      }
+      .button:hover,
+      .nav-cta:hover {
+        transform: translateY(-2px);
+      }
+      .menu-toggle {
+        display: none;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 4px;
+        background: transparent;
+        color: white;
+        padding: 8px 11px;
+      }
+
+      .hero {
+        min-height: 705px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        color: var(--white);
+        background:
+          linear-gradient(
+            90deg,
+            rgba(3, 44, 54, 0.78) 0%,
+            rgba(3, 52, 60, 0.45) 48%,
+            rgba(3, 52, 60, 0.12) 100%
+          ),
+          url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1900&q=85")
+            center/cover;
+      }
+      .hero-content {
+        padding: 102px 0 58px;
+        max-width: 650px;
+        animation: rise 0.7s ease both;
+      }
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        margin-bottom: 20px;
+        color: #b9eee1;
+        font-size: 0.73rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 28px;
+        height: 2px;
+        background: var(--sun);
+      }
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: Fraunces, serif;
+        font-weight: 600;
+        letter-spacing: -0.045em;
+      }
+      h1 {
+        max-width: 670px;
+        font-size: clamp(3.6rem, 7vw, 6.35rem);
+        line-height: 0.94;
+      }
+      .hero-copy {
+        max-width: 500px;
+        margin: 26px 0 30px;
+        color: #e5f4ee;
+        font-size: 1.03rem;
+      }
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 21px;
+      }
+      .button {
+        padding: 14px 19px;
+        background: var(--sun);
+        color: var(--ink);
+        font-size: 0.85rem;
+      }
+      .text-link {
+        color: white;
+        font-size: 0.85rem;
+        font-weight: 700;
+      }
+      .text-link span {
+        color: var(--sun);
+        margin-left: 5px;
+      }
+      .hero-note {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 60px;
+        color: #d9eee9;
+        font-size: 0.74rem;
+      }
+      .hero-note span {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #7ee3ae;
+        box-shadow: 0 0 0 4px rgba(126, 227, 174, 0.17);
+      }
+      .hero-contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 22px;
+        margin-top: 20px;
+        color: #d9eee9;
+        font-size: 0.8rem;
+      }
+      .hero-contact a:hover { color: var(--sun); }
+
+      .intro {
+        padding: 94px 0 101px;
+      }
+      .intro-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 90px;
+        align-items: center;
+      }
+      h2 {
+        font-size: clamp(2.45rem, 4.3vw, 4rem);
+        line-height: 1;
+      }
+      .intro p {
+        max-width: 470px;
+        margin: 23px 0 0;
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        margin-top: 36px;
+        border-top: 1px solid var(--line);
+      }
+      .stat {
+        padding: 22px 20px 0 0;
+        border-right: 1px solid var(--line);
+      }
+      .stat:nth-child(2) {
+        padding-left: 24px;
+        border: 0;
+      }
+      .stat strong {
+        display: block;
+        color: var(--sea);
+        font-family: Fraunces, serif;
+        font-size: 2.2rem;
+        line-height: 1;
+      }
+      .stat span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.77rem;
+      }
+      .service-list {
+        display: grid;
+        gap: 12px;
+      }
+      .service {
+        display: grid;
+        grid-template-columns: 49px 1fr 20px;
+        align-items: center;
+        gap: 15px;
+        padding: 18px 20px;
+        border: 1px solid var(--line);
+        background: var(--white);
+      }
+      .service-icon {
+        display: grid;
+        place-items: center;
+        width: 43px;
+        height: 43px;
+        background: var(--foam);
+        color: var(--sea);
+        font-size: 1.25rem;
+      }
+      .service strong {
+        font-size: 0.9rem;
+      }
+      .service small {
+        display: block;
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+      .service b {
+        color: var(--sea);
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+
+      .promise {
+        padding: 82px 0;
+        background: var(--foam);
+      }
+      .promise-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 30px;
+        margin-bottom: 45px;
+      }
+      .promise-heading p {
+        max-width: 315px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+      .promise-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 38px;
+      }
+      .promise-card {
+        padding-top: 20px;
+        border-top: 1px solid #a9c9c0;
+      }
+      .promise-number {
+        color: var(--sun);
+        font-family: Fraunces, serif;
+        font-size: 1.2rem;
+      }
+      .promise-card h3 {
+        margin: 18px 0 8px;
+        font-size: 1.55rem;
+      }
+      .promise-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .quote {
+        padding: 105px 0;
+        background: var(--sea-deep);
+        color: white;
+      }
+      .quote-grid {
+        display: grid;
+        grid-template-columns: 1fr 0.9fr;
+        gap: 90px;
+        align-items: center;
+      }
+      .quote .eyebrow {
+        color: #b9eee1;
+      }
+      .quote h2 {
+        max-width: 500px;
+        color: white;
+      }
+      .quote-intro {
+        max-width: 420px;
+        margin: 21px 0 0;
+        color: #c4ddda;
+        font-size: 0.9rem;
+      }
+      .contact-panel {
+        display: grid;
+        gap: 10px;
+        margin-top: 30px;
+        max-width: 420px;
+      }
+      .contact-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 14px;
+        border: 1px solid rgba(185, 238, 225, 0.24);
+        color: #e5f4ee;
+        font-size: 0.82rem;
+        transition: background 0.2s, border-color 0.2s;
+      }
+      .contact-card:hover {
+        border-color: var(--sun);
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .contact-details {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+      .contact-icon {
+        display: grid;
+        place-items: center;
+        flex: 0 0 auto;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--sun);
+        color: var(--ink);
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+      .contact-panel small {
+        display: block;
+        color: #a9cbc5;
+        font-size: 0.68rem;
+      }
+      .contact-action {
+        flex: 0 0 auto;
+        padding: 8px 12px;
+        border: 1px solid var(--sun);
+        border-radius: 3px;
+        background: var(--sun);
+        color: var(--ink);
+        font-size: 0.7rem;
+        font-weight: 700;
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+      }
+      .contact-action:hover {
+        transform: translateY(-1px);
+        background: transparent;
+        color: var(--sun);
+      }
+      .quote-form {
+        display: grid;
+        gap: 12px;
+        padding: 27px;
+        background: white;
+        color: var(--ink);
+      }
+      .quote-form label {
+        display: grid;
+        gap: 6px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+      .quote-form input,
+      .quote-form select {
+        width: 100%;
+        padding: 12px 13px;
+        border: 1px solid var(--line);
+        border-radius: 3px;
+        color: var(--ink);
+        outline-color: var(--sea);
+        background: var(--paper);
+        font-size: 0.82rem;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .quote-form .button {
+        margin-top: 7px;
+      }
+      .form-message {
+        display: none;
+        padding: 10px;
+        background: var(--foam);
+        color: var(--sea-deep);
+        font-size: 0.78rem;
+        text-align: center;
+      }
+      .form-message.show {
+        display: block;
+      }
+      footer {
+        padding: 32px 0;
+        background: #063f47;
+        color: #b9d6d1;
+        font-size: 0.75rem;
+      }
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .footer-links {
+        display: flex;
+        gap: 22px;
+      }
+      .footer-contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        color: #e0f1eb;
+      }
+      .footer-contact a:hover { color: var(--sun); }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 720px) {
+        .wrap {
+          width: min(100% - 34px, 560px);
+        }
+        header {
+          inset: 43px 0 auto;
+        }
+        .nav-links,
+        .nav-cta {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .nav-links.open {
+          position: absolute;
+          top: 48px;
+          left: 0;
+          right: 0;
+          display: grid;
+          gap: 0;
+          padding: 8px 16px;
+          background: var(--sea-deep);
+        }
+        .nav-links.open a {
+          padding: 10px 0;
+        }
+        .hero {
+          min-height: 650px;
+          background-position: 63% center;
+        }
+        .hero-content {
+          padding-top: 95px;
+        }
+        h1 {
+          font-size: clamp(3.3rem, 16vw, 5rem);
+        }
+        .hero-note {
+          margin-top: 38px;
+        }
+        .intro,
+        .quote {
+          padding: 72px 0;
+        }
+        .intro-grid,
+        .quote-grid {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+        .promise {
+          padding: 70px 0;
+        }
+        .promise-heading {
+          display: block;
+        }
+        .promise-heading p {
+          margin-top: 20px;
+        }
+        .promise-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .footer-inner {
+          display: grid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="announcement">
+      <strong>New:</strong> Free delivery on your first order of 5-gallon
+      bottles
+    </div>
+    <header>
+      <div class="wrap">
+        <nav aria-label="Main navigation">
+          <a class="logo" href="#top" aria-label="Royal Aqua home">
+            <svg class="brand-symbol" viewBox="0 0 64 72" role="img" aria-label="Crowned water drop">
+              <defs>
+                <linearGradient id="headerDrop" x1="15%" y1="0" x2="85%" y2="100%">
+                  <stop offset="0" stop-color="#8feeff" />
+                  <stop offset="0.45" stop-color="#12a7e8" />
+                  <stop offset="1" stop-color="#0757bd" />
+                </linearGradient>
+                <linearGradient id="headerGold" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#fff0a0" />
+                  <stop offset="0.5" stop-color="#f4bf68" />
+                  <stop offset="1" stop-color="#b96b18" />
+                </linearGradient>
+              </defs>
+              <path d="M32 21C24 31 13 42 13 53a19 19 0 0 0 38 0C51 42 40 31 32 21Z" fill="url(#headerDrop)" stroke="#b9eee1" stroke-width="1.5" />
+              <path d="M18 20 23 7l9 8 9-11 4 15 8 2-7 8H18l-7-8 7-1Z" fill="url(#headerGold)" stroke="#f8da86" stroke-width="1.5" stroke-linejoin="round" />
+              <path d="M17 31c7 7 25 8 34 0" fill="none" stroke="#e7fbff" stroke-width="2.5" opacity=".9" />
+              <path d="M23 43c-3 5-4 9-3 12" fill="none" stroke="#e7fbff" stroke-width="2" stroke-linecap="round" opacity=".8" />
+            </svg>
+            <span class="brand-copy"><span class="brand-name">ROYAL AQUA</span><span class="brand-tagline">PURE PACKAGED WATER</span></span>
+          </a>
+          <div class="nav-links" id="navLinks">
+            <a href="#services">Our water</a>
+            <a href="#promise">Why Royal Aqua</a>
+            <a href="#quote">Delivery areas</a>
+          </div>
+          <a class="nav-cta" href="#quote">Get a quote <span>↗</span></a>
+          <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="wrap">
+          <div class="hero-content">
+            <div class="eyebrow">Pure water, delivered</div>
+            <h1>Make room for a better kind of fresh.</h1>
+            <p class="hero-copy">
+              Premium drinking water for the everyday moments that matter.
+              Thoughtfully sourced, carefully tested, and brought right to your
+              door.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#quote"
+                >Start your delivery <span>→</span></a
+              >
+              <a class="text-link" href="#services"
+                >Explore water <span>↘</span></a
+              >
+            </div>
+            <div class="hero-note">
+              <span></span> Serving homes and businesses since 2014
+            </div>
+            <div class="hero-contact">
+              <a href="tel:+923106223366">Call 0310 622 3366</a>
+              <a href="https://wa.me/923106223366" target="_blank" rel="noopener">WhatsApp us ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro" id="services">
+        <div class="wrap intro-grid">
+          <div>
+            <div class="eyebrow" style="color: var(--sea)">
+              Water, considered
+            </div>
+            <h2>Good water changes everything.</h2>
+            <p>
+              From a crisp glass in the morning to the last bottle at a busy
+              office, Royal Aqua makes staying hydrated feel simple. We do the
+              details so you can get on with your day.
+            </p>
+            <div class="stats">
+              <div class="stat">
+                <strong>99.9%</strong><span>purity on every delivery</span>
+              </div>
+              <div class="stat">
+                <strong>48 hr</strong
+                ><span>easy, reliable delivery window</span>
+              </div>
+            </div>
+          </div>
+          <div class="service-list">
+            <a class="service" href="#quote"
+              ><span class="service-icon">♧</span
+              ><span
+                ><strong>Home delivery</strong
+                ><small>Fresh bottles, right to your doorstep.</small></span
+              ><b>↗</b></a
+            >
+            <a class="service" href="#quote"
+              ><span class="service-icon">▥</span
+              ><span
+                ><strong>Office hydration</strong
+                ><small>Keep your team refreshed and focused.</small></span
+              ><b>↗</b></a
+            >
+            <a class="service" href="#quote"
+              ><span class="service-icon">◌</span
+              ><span
+                ><strong>Events &amp; hospitality</strong
+                ><small>Thoughtful water for every gathering.</small></span
+              ><b>↗</b></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="promise" id="promise">
+        <div class="wrap">
+          <div class="promise-heading">
+            <h2>Better by nature.</h2>
+            <p>
+              Small choices, made consistently. That is how we make every bottle
+              count.
+            </p>
+          </div>
+          <div class="promise-grid">
+            <article class="promise-card">
+              <span class="promise-number">01</span>
+              <h3>Source with care</h3>
+              <p>
+                We work with protected local springs and trusted natural
+                sources, selected for clarity and character.
+              </p>
+            </article>
+            <article class="promise-card">
+              <span class="promise-number">02</span>
+              <h3>Test without compromise</h3>
+              <p>
+                Every batch is filtered, balanced, and checked so your water
+                tastes as good as it should.
+              </p>
+            </article>
+            <article class="promise-card">
+              <span class="promise-number">03</span>
+              <h3>Deliver with purpose</h3>
+              <p>
+                Reusable bottles, thoughtful routes, and a team that knows your
+                name. Better for you, better for here.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="quote" id="quote">
+        <div class="wrap quote-grid">
+          <div>
+            <div class="eyebrow">Let's get started</div>
+            <h2>Bring better water home.</h2>
+            <p class="quote-intro">
+              Tell us a little about what you need and our local delivery team
+              will be in touch within one business day.
+            </p>
+            <div class="contact-panel" aria-label="Royal Aqua contact details">
+              <div class="contact-card"><div class="contact-details"><span class="contact-icon">☎</span><span><small>Call us directly</small>0310 622 3366</span></div><a class="contact-action" href="tel:+923106223366">Call</a></div>
+              <div class="contact-card"><div class="contact-details"><span class="contact-icon">W</span><span><small>Chat on WhatsApp</small>0310 622 3366</span></div><a class="contact-action" href="https://wa.me/923106223366" target="_blank" rel="noopener">Chat</a></div>
+              <div class="contact-card"><div class="contact-details"><span class="contact-icon">@</span><span><small>Email our team</small>abdulsalaminfo.net@gmail.com</span></div><a class="contact-action" href="mailto:abdulsalaminfo.net@gmail.com">Email</a></div>
+            </div>
+          </div>
+          <form class="quote-form" id="quoteForm">
+            <div class="form-row">
+              <label
+                >Name<input
+                  type="text"
+                  name="name"
+                  placeholder="Your name"
+                  required /></label
+              ><label
+                >Work email<input
+                  type="email"
+                  name="email"
+                  placeholder="you@email.com"
+                  required
+              /></label>
+            </div>
+            <label
+              >What are you looking for?<select name="need">
+                <option>Home delivery</option>
+                <option>Office hydration</option>
+                <option>Event service</option>
+              </select></label
+            >
+            <button class="button" type="submit">
+              Request a quote <span>→</span>
+            </button>
+            <div class="form-message" id="formMessage" role="status">
+              Thanks. We will be in touch shortly.
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap footer-inner">
+        <a class="logo" href="#top" aria-label="Royal Aqua home">
+          <svg class="brand-symbol" viewBox="0 0 64 72" role="img" aria-label="Crowned water drop">
+            <defs>
+              <linearGradient id="footerDrop" x1="15%" y1="0" x2="85%" y2="100%">
+                <stop offset="0" stop-color="#8feeff" />
+                <stop offset="0.45" stop-color="#12a7e8" />
+                <stop offset="1" stop-color="#0757bd" />
+              </linearGradient>
+              <linearGradient id="footerGold" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fff0a0" />
+                <stop offset="0.5" stop-color="#f4bf68" />
+                <stop offset="1" stop-color="#b96b18" />
+              </linearGradient>
+            </defs>
+            <path d="M32 21C24 31 13 42 13 53a19 19 0 0 0 38 0C51 42 40 31 32 21Z" fill="url(#footerDrop)" stroke="#b9eee1" stroke-width="1.5" />
+            <path d="M18 20 23 7l9 8 9-11 4 15 8 2-7 8H18l-7-8 7-1Z" fill="url(#footerGold)" stroke="#f8da86" stroke-width="1.5" stroke-linejoin="round" />
+            <path d="M17 31c7 7 25 8 34 0" fill="none" stroke="#e7fbff" stroke-width="2.5" opacity=".9" />
+            <path d="M23 43c-3 5-4 9-3 12" fill="none" stroke="#e7fbff" stroke-width="2" stroke-linecap="round" opacity=".8" />
+          </svg>
+          <span class="brand-copy"><span class="brand-name">ROYAL AQUA</span><span class="brand-tagline">PURE PACKAGED WATER</span></span>
+        </a>
+        <div class="footer-contact">
+          <a href="tel:+923106223366">0310 622 3366</a>
+          <a href="https://wa.me/923106223366" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="mailto:abdulsalaminfo.net@gmail.com">abdulsalaminfo.net@gmail.com</a>
+        </div>
+        <div class="footer-links">
+          <a href="#services">Services</a><a href="#promise">Our promise</a
+          ><a href="#quote">Contact</a>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+      menuToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", isOpen);
+      });
+      document
+        .querySelectorAll(".nav-links a")
+        .forEach((link) =>
+          link.addEventListener("click", () =>
+            navLinks.classList.remove("open"),
+          ),
+        );
+      document
+        .getElementById("quoteForm")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+          document.getElementById("formMessage").classList.add("show");
+          event.target.querySelector("button").disabled = true;
+        });
+    </script>
+  </body>
+</html>
